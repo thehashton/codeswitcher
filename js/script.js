@@ -39,3 +39,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     observer.observe(footer);
 });
+
+function copyCode() {
+    const codeElement = document.querySelector('.code-container__code--active code');
+    const codeText = codeElement.innerText;
+
+    navigator.clipboard.writeText(codeText).then(() => {
+        alert('Code copied to clipboard!');
+    }).catch(err => {
+        console.error('Failed to copy code: ', err);
+    });
+}

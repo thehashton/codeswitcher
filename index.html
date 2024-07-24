@@ -38,7 +38,7 @@
 </header>
 <div class="container">
     <h2 class="container__title">Any language, any framework, always secure</h2>
-    <p class="container__description">Add authentication to your APIs in a few lines of code. We provide SDKs for a range of languages and frameworks, and an intuitive REST API with public OpenAPI spec.</p>
+    <p class="container__description">Integrate authentication into your APIs effortlessly with just a few lines of code. We offer SDKs for various languages and frameworks, alongside an intuitive REST API with a public OpenAPI specification.</p>
     <button class="container__button container__button--get-started">Get Started</button>
     <button class="container__button container__button--view-docs">Visit the docs</button>
     <div class="code-container">
@@ -73,7 +73,10 @@
             </button>
         </div>
         <div class="code-container__content">
-                <pre class="code-container__code code-container__code--typescript code-container__code--active line-numbers"><code class="language-typescript">import { verifyKey } from '@unkey/api'
+            <div class="copy-icon" onclick="copyCode()" role="button" tabindex="0" aria-label="Copy code to clipboard" title="Copy code to clipboard">
+                <i class="fas fa-copy"></i>
+            </div>
+                <pre class="code-container__code code-container__code--typescript code-container__code--active line-numbers"><code class="language-typescript">import { verifyKey } from '@codeswitch/api'
 
 const { result, error } = await verifyKey({
     apiId: 'api_123',
@@ -92,10 +95,10 @@ if (!result.valid) {
                 </code></pre>
             <pre class="code-container__code code-container__code--python line-numbers"><code class="language-python">import asyncio
 import os
-import unkey
+import codeswitch
 
 async def main() -> None:
-    client = unkey.Client(api_key=os.environ["API_KEY"])
+    client = codeswitch.Client(api_key=os.environ["API_KEY"])
     await client.start()
 
     result = await client.keys.verify_key("prefix_abc123")
@@ -105,11 +108,11 @@ async def main() -> None:
     else {
         print(result.unwrap_err())
                 </code></pre>
-            <pre class="code-container__code code-container__code--rust line-numbers"><code class="language-rust">use unkey::models::{VerifyKeyRequest, Wrapped};
-use unkey::Client;
+            <pre class="code-container__code code-container__code--rust line-numbers"><code class="language-rust">use codeswitch::models::{VerifyKeyRequest, Wrapped};
+use codeswitch::Client;
 
 async fn verify_key() {
-    let api_key = env::var("UNKEY_API_KEY").expect("Environment variable UNKEY_API_KEY not found");
+    let api_key = env::var("codeswitch_API_KEY").expect("Environment variable CODESWITCH_API_KEY not found");
     let c = Client::new(&api_key);
     let req = VerifyKeyRequest::new("test_req", "api_458vdYdbwut5LWABzXZP3Z8jPVas");
 
@@ -123,12 +126,12 @@ async fn verify_key() {
 
 import (
     "fmt"
-    unkey "github.com/WilfredAlmeida/unkey-go/features"
+    codeswitch "github.com/WilfredAlmeida/codeswitch-go/features"
 )
 
 func main() {
     apiKey := "key_3ZZ7faJrkfv1YAfhfAcnKW74"
-    response, err := unkey.KeyVerify(apiKey)
+    response, err := codeswitch.KeyVerify(apiKey)
     if err != nil {
         fmt.Println("Error:", err)
         return
@@ -142,14 +145,14 @@ func main() {
 }
                 </code></pre>
             <pre class="code-container__code code-container__code--curl line-numbers"><code class="language-bash">curl --request POST \
---url https://api.unkey.dev/v1/keys.verifyKey \
+--url https://api.codeswitch.dev/v1/keys.verifyKey \
 --header 'Content-Type: application/json' \
 --data '{
     "apiId": "api_1234",
     "key": "sk_1234",
 }'
                 </code></pre>
-            <pre class="code-container__code code-container__code--elixir line-numbers"><code class="language-elixir">UnkeyElixirSdk.verify_key("xyz_AS5HDbkXXPot2MMoPHD8jnL")
+            <pre class="code-container__code code-container__code--elixir line-numbers"><code class="language-elixir">CodeswitchElixirSdk.verify_key("xyz_AS5HDbkXXPot2MMoPHD8jnL")
 
 # returns
 %{
@@ -161,8 +164,8 @@ func main() {
 }
                 </code></pre>
             <pre class="code-container__code code-container__code--java line-numbers"><code class="language-java">package com.example.myapp;
-import com.unkey.unkeysdk.dto.KeyVerifyRequest;
-import com.unkey.unkeysdk.dto.KeyVerifyResponse;
+import com.codeswitch.codeswitchsdk.dto.KeyVerifyRequest;
+import com.codeswitch.codeswitchsdk.dto.KeyVerifyResponse;
 
 @RestController
 public class APIController {
@@ -195,5 +198,6 @@ public class APIController {
     </div>
 </footer>
 <script src="js/script.js"></script>
+<script src="js/stars.js"></script>
 </body>
 </html>

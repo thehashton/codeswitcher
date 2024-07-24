@@ -9,20 +9,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     flex-direction: column;
     overflow-x: hidden;
 }
 
 .header {
     width: 100%;
-    padding: 10px 0;
+    padding: 2px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #323232;
     background: linear-gradient(180deg, #000000, #181818);
-    /*opacity: 0.95;*/
     position: fixed;
     top: 0;
     left: 0;
@@ -32,6 +31,9 @@ body {
 .header__title {
     margin-left: 20px;
     font-size: 24px;
+    background: -webkit-linear-gradient(280deg,#ffffff, #4d4d4d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .header__nav {
@@ -83,8 +85,8 @@ body {
     top: 5rem;
     text-align: center;
     max-width: 1200px;
-    margin-top: 180px;
-    padding: 0 2rem;
+    margin: 50px 0;
+    padding-bottom: 80px;
     z-index: 1;
 }
 
@@ -95,17 +97,14 @@ body {
     width: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(180deg, #000000, #181818);
+    /*background: linear-gradient(180deg, #000000, #181818);*/
     z-index: -1;
 }
 
 .container__title {
-    font-size: 45px;
+    font-size: 55px;
     margin: 20px 0;
-    /*font-size: 72px;*/
-    background: -webkit-linear-gradient(80deg,#ffffff, #5c5c5c);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ffffff;
 }
 
 .container__description {
@@ -131,13 +130,13 @@ body {
 }
 
 .code-container {
-    margin-top: 40px;
-    /*overflow-x: scroll;*/
     background: radial-gradient(#444444, #000000);
     border: 1px solid #282828;
     border-radius: 10px;
     padding: 25px 0 0 0;
     width: 100%;
+    max-width: 960px;
+    margin: 80px auto 0 auto;
 }
 
 .code-container__tabs {
@@ -173,12 +172,12 @@ body {
 }
 
 .code-container__content {
+    position: relative;
     background: linear-gradient(180deg, #191919, #000000);
     border-radius: 10px;
     padding: 20px;
-    height: 100%;
-    min-height: 450px;
-    /*border: 1px solid #444;*/
+    height: 500px;
+    overflow-y: scroll;
 }
 
 .code-container__code {
@@ -257,8 +256,6 @@ pre[class*="language-"].line-numbers > code {
     display: flex;
     gap: 10px;
     margin-top: 5rem;
-    height: 70px;
-    overflow-y: hidden;
 }
 
 @media screen and (min-width: 768px) {
@@ -266,22 +263,85 @@ pre[class*="language-"].line-numbers > code {
         margin-top: 1rem;
         overflow-y: hidden;
         height: 155px;
-
     }
 }
 
 .footer__inner span {
     font-size: 15vw;
     font-weight: bold;
-    letter-spacing: -1rem;
-    color: #2a2a2a;
+    letter-spacing: -0.5rem;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+    background: linear-gradient(to right, #404040, #212121);
+    background-clip: text;
+    color: transparent;
 }
 
 .footer__inner span.animate {
-    opacity: 1;
+    opacity: 0.75;
     transform: translateY(0);
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.75;
+    }
+    100% {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+
+.star {
+    position: fixed;
+    top: -10vh;
+    width: 1px;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, white, transparent);
+    opacity: 0;
+    animation: fall 3s linear infinite;
+}
+
+@keyframes twinkling {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.star::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(to top, white, white, transparent);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: twinkling 4.5s infinite;
+}
+
+.copy-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.25rem;
+    width: 2rem;
+    height: 2rem;
+    color: #3b3b3b;
+    z-index: 2;
+}
+
+.copy-icon:hover, .fa-copy:hover {
+    color: #828282;
+    cursor: pointer;
 }
 
