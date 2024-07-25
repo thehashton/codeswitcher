@@ -39,8 +39,10 @@
 <div class="container">
     <h2 class="container__title">Any language, any framework, always secure</h2>
     <p class="container__description">Integrate authentication into your APIs effortlessly with just a few lines of code. We offer SDKs for various languages and frameworks, alongside an intuitive REST API with a public OpenAPI specification.</p>
-    <button class="container__button container__button--get-started">Get Started</button>
-    <button class="container__button container__button--view-docs">Visit the docs</button>
+    <div class="container__buttons">
+        <button class="container__button container__button--get-started">Get Started</button>
+        <button class="container__button container__button--view-docs"><span>Visit the docs </span><i class="fas fa-arrow-right"></i></button>
+        </div>
     <div class="code-container">
         <div class="code-container__tabs">
             <button class="code-container__tab code-container__tab--active" data-language="typescript">
@@ -76,7 +78,7 @@
             <div class="copy-icon" onclick="copyCode()" role="button" tabindex="0" aria-label="Copy code to clipboard" title="Copy code to clipboard">
                 <i class="fas fa-copy"></i>
             </div>
-                <pre class="code-container__code code-container__code--typescript code-container__code--active line-numbers"><code class="language-typescript">import { verifyKey } from '@codeswitch/api'
+            <pre class="code-container__code code-container__code--typescript code-container__code--active line-numbers"><code class="language-typescript">import { verifyKey } from '@codeswitch/api'
 
 const { result, error } = await verifyKey({
     apiId: 'api_123',
@@ -103,10 +105,11 @@ async def main() -> None:
 
     result = await client.keys.verify_key("prefix_abc123")
 
-    if result.is_ok:
-        print(data.valid)
-    else {
-        print(result.unwrap_err())
+    if result.is_ok {
+        print(data.valid);
+    } else {
+        print(result.unwrap_err());
+    }
                 </code></pre>
             <pre class="code-container__code code-container__code--rust line-numbers"><code class="language-rust">use codeswitch::models::{VerifyKeyRequest, Wrapped};
 use codeswitch::Client;
@@ -130,17 +133,17 @@ import (
 )
 
 func main() {
-    apiKey := "key_3ZZ7faJrkfv1YAfhfAcnKW74"
-    response, err := codeswitch.KeyVerify(apiKey)
+    apiKey := "key_3ZZ7faJrkfv1YAfhfAcnKW74";
+    response, err := codeswitch.KeyVerify(apiKey);
     if err != nil {
-        fmt.Println("Error:", err)
-        return
+        fmt.Println("Error:", err);
+        return;
     }
 
     if response.Valid {
-        fmt.Println("Key is valid")
+        fmt.Println("Key is valid");
     } else {
-        fmt.Println("Key is invalid")
+        fmt.Println("Key is invalid");
     }
 }
                 </code></pre>
