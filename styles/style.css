@@ -1,5 +1,10 @@
 @import url('fonts.css');
 
+html {
+
+    width: 100%;
+}
+
 body {
     font-family: 'Geist Sans', sans-serif !important;
     background: black;
@@ -29,6 +34,7 @@ body {
 }
 
 .header__title {
+    margin-top: 0;
     margin-left: 20px;
     font-size: 24px;
     background: -webkit-linear-gradient(280deg,#ffffff, #4d4d4d);
@@ -37,7 +43,13 @@ body {
 }
 
 .header__nav {
+    display: none;
+}
+
+.header__nav.active {
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     gap: 2rem;
 }
 
@@ -57,32 +69,40 @@ body {
 
 .header__button {
     background-color: #fff;
-    border: none;
     color: #222;
     font-size: 1rem;
     font-family: "Geist Sans", sans-serif;
     border-radius: 0.5rem;
+    border: 1px solid transparent;
     padding: 10px 20px;
+    transition: all 0.2s linear;
     cursor: pointer;
     margin-left: 10px;
 }
 
 .header__inner {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+.header_inner-left {
+    display: flex;
+    align-items: center;
+}
+
 .header__button:hover {
-    background-color: #444444;
+    background-color: #262626;
     color: #fff;
+    border: 1px solid #a4a4a4;
 }
 
 .mobile-menu-icon {
-    display: none;
+    display: block;
     cursor: pointer;
     font-size: 24px;
     margin-right: 20px;
@@ -130,13 +150,15 @@ body {
     background-color: #ffffff;
     font-family: "Geist Sans", sans-serif;
     font-size: 16px;
-    border: none;
+    border: 1px solid transparent;
+    transition: all 0.2s linear;
     border-radius: 8px;
     color: #222;
 }
 
 .container__button:hover {
-    background-color: #444444;
+    background-color: #262626;
+    border: 1px solid #d7d7d7;
     color: #fff;
     cursor: pointer;
 }
@@ -153,7 +175,7 @@ body {
     padding: 25px 0 0 0;
     width: 100%;
     max-width: 960px;
-    margin: 80px auto 0 auto;
+    margin: 120px auto 0 auto;
 }
 
 .code-container__tabs {
@@ -161,6 +183,7 @@ body {
     justify-content: start;
     border-radius: 5px;
     gap: 0.5rem;
+    overflow-x: auto;
     padding: 0 10px;
 }
 
@@ -453,8 +476,17 @@ button.container__button--view-docs span {
     z-index: -2;
 }
 
+@media (min-width: 500px) {
+    .header__inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 0;
+    }
+}
 
-@media (max-width: 1050px) {
+@media (min-width: 1050px) {
     .header__inner {
         flex-wrap: wrap;
         text-align: center;
@@ -473,7 +505,9 @@ button.container__button--view-docs span {
     }
 
     .header__nav {
-        display: none;
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
     }
 
     .header__nav.active, .header__auth.active {
@@ -484,6 +518,88 @@ button.container__button--view-docs span {
     }
 
     .mobile-menu-icon {
-        display: block;
+        display: none;
     }
+}
+
+.open-source-section {
+    text-align: center;
+    padding: 50px 20px;
+    /*background: linear-gradient(180deg, #000000, #0b0b0b);*/
+    width: 100%;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    color: #888888;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-size: 48px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    font-size: 18px;
+    color: #bbbbbb;
+    margin-bottom: 30px;
+}
+
+.github-button {
+    background-color: #1A2929;
+    border: 2px solid #3f3f3f;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    display: inline-flex;
+    align-items: center;
+}
+
+.github-button i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.github-button:hover {
+    border-color: #a4a4a4;
+}
+
+.gitPulse {
+    position: relative;
+    padding: 100px 0;
+}
+
+.gitPulse img {
+    width: 100%;
+    max-width: 600px;
+}
+
+.gitPulse__bg {
+    top: -200px;
+    left: 0;
+    margin: 140px 0 70px 0;
+    opacity: 0.15;
+    background-image: url("../images/circuits.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    -moz-filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    -o-filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    -webkit-filter: grayscale(100%);
+    filter: gray;
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+}
+
+.gitpulse:after {
+
 }
