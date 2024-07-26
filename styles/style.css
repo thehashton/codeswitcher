@@ -22,7 +22,6 @@ body {
 .header {
     width: 100%;
     padding: 2px 0;
-    display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #323232;
@@ -34,12 +33,17 @@ body {
 }
 
 .header__title {
-    margin-top: 0;
-    margin-left: 20px;
+    margin: 0;
     font-size: 24px;
     background: -webkit-linear-gradient(280deg,#ffffff, #4d4d4d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+@media screen and (min-width: 425px) {
+    .header__title {
+        margin: 0;
+    }
 }
 
 .header__nav {
@@ -50,6 +54,7 @@ body {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    padding: 20px 0;
     gap: 2rem;
 }
 
@@ -64,16 +69,19 @@ body {
 }
 
 .header__auth {
+    display: flex;
+    align-items: center;
     margin-right: 20px;
+    padding: 20px 0;
 }
 
 .header__button {
-    background-color: #fff;
-    color: #222;
+    background-color: transparent;
+    color: #fff;
     font-size: 1rem;
     font-family: "Geist Sans", sans-serif;
     border-radius: 0.5rem;
-    border: 1px solid transparent;
+    border: 1px solid #525252;
     padding: 10px 20px;
     transition: all 0.2s linear;
     cursor: pointer;
@@ -82,12 +90,15 @@ body {
 
 .header__inner {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     width: 100%;
     max-width: 1200px;
+    padding: 20px 0;
     margin: 0 auto;
+    transition: all 0.2s linear;
 }
 
 .header_inner-left {
@@ -99,6 +110,10 @@ body {
     background-color: #262626;
     color: #fff;
     border: 1px solid #a4a4a4;
+}
+
+.header__button--sign-in {
+    background-color: #035600
 }
 
 .mobile-menu-icon {
@@ -480,15 +495,17 @@ button.container__button--view-docs span {
     .header__inner {
         display: flex;
         flex-wrap: wrap;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
-        padding: 10px 0;
+        justify-content: space-between;
+        padding: 10px;
     }
 }
 
 @media (min-width: 1050px) {
     .header__inner {
         flex-wrap: wrap;
+        flex-direction: row;
         text-align: center;
         justify-content: space-between;
         padding: 0 20px;
