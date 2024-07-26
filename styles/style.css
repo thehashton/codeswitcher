@@ -189,8 +189,20 @@ body {
     border-radius: 10px;
     padding: 25px 0 0 0;
     width: 100%;
-    max-width: 960px;
+    max-width: 375px;
     margin: 120px auto 0 auto;
+}
+
+@media (min-width: 500px) {
+    .code-container {
+        max-width: 500px;
+    }
+}
+
+@media (min-width: 1050px) {
+    .code-container {
+        max-width: 960px;
+    }
 }
 
 .code-container__tabs {
@@ -485,13 +497,17 @@ button.container__button--view-docs span {
     position: absolute;
     top: -100px;
     left: -100px;
-    width: 110%;
+    width: 130vw;
     height: 1000px;
     background: radial-gradient(circle, rgba(46, 46, 46, 0.9), rgba(0, 0, 0, 0.2));
     z-index: -2;
 }
 
 @media (min-width: 500px) {
+    .code-container-bg-blur {
+        width: 110vw;
+    }
+
     .header__inner {
         display: flex;
         flex-wrap: wrap;
